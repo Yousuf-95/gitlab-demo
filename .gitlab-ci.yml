@@ -16,4 +16,4 @@ build-job:
 deploy-job:
   stage: deploy
   script:
-    - node index.js
+    - node index.js > /dev/null 2>&1
