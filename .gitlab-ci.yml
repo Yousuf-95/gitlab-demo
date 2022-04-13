@@ -1,0 +1,19 @@
+stages:
+  - build
+  - deploy
+
+image: node
+
+build-job:
+  stage: build
+  script:
+  - npm install
+  artifacts:
+    paths:
+      - node_modules
+      - package-lock.json
+
+deploy-job:
+  stage: deploy
+  script:
+    - node index.js
