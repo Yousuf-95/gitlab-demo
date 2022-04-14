@@ -16,4 +16,6 @@ build-job:
 deploy-job:
   stage: deploy
   script:
+    - gem install dpl
     - node index.js > /dev/null 2>&1 &
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
